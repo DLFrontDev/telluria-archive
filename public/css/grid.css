@@ -1,0 +1,364 @@
+/* Custom CSS */
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/*Top Bar Menu*/
+
+.menu-bar {
+  position: fixed;
+  width: 50%;
+  left: 25%;
+}
+
+.menu-bar .btn {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  min-width: 200px;
+}
+
+.menu-bar .btn:nth-child(2) {
+  float: right;
+}
+
+.settings-resizing > div:not(:last-child) {
+  display: inline-block;
+  width: calc(100% / 2 - 20px);
+}
+
+.settings-resizing > div:not(:last-child):nth-child(odd) {
+  margin-right: 20px;
+}
+
+.settings-resizing div:last-child {
+  text-align: center;
+}
+
+/*Sidebar Menus*/
+
+.btn-toggle-left {
+  position: absolute;
+  height: 5vh;
+  top: 5vh;
+  left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: left 1s;
+}
+
+.btn-toggle-right {
+  position: absolute;
+  height: 5vh;
+  top: 5vh;
+  right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: right 1s;
+}
+
+.btn-toggle-left i, .btn-toggle-left svg, .btn-toggle-left path,
+.btn-toggle-right i, .btn-toggle-right svg, .btn-toggle-right path,
+.zoom-in i, .zoom-in svg, .zoom-in path,
+.zoom-out i, .zoom-out svg, .zoom-out path{
+  pointer-events: none;
+}
+
+.sidebar-left, .sidebar-right {
+  padding: 15vh 15px;
+  height: 100vh;
+  overflow-y: auto;
+  position: absolute;
+  width: 240px;
+  background-color: white;
+  z-index: 2;
+}
+
+.sidebar-left {
+  left: -240px;
+  border-right: 1px solid lightgrey;
+  transition: left 1s;
+}
+
+.sidebar-right {
+  right: -240px;
+  border-left: 1px solid lightgrey;
+  transition: right 1s;
+}
+
+.sidebar-left.sidebar-open {
+  left: 0;
+}
+
+.btn-toggle-left.sidebar-open {
+  left: 240px;
+}
+
+.sidebar-right.sidebar-open {
+  right: 0;
+}
+
+.btn-toggle-right.sidebar-open {
+  right: 240px;
+}
+
+.sidebar-left input[type="color" i], .sidebar-right input[type="color" i] {
+  padding: 1px 2px;
+  width: 75%;
+}
+
+.sidebar-left input[type="number"], .sidebar-right input[type="number"] {
+  width: 50%;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:focus, .btn:active {
+  box-shadow: none!important;
+}
+
+.btn-selected {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/*Grid CSS*/
+.grid-wrapper.container {
+  position: fixed;
+  top: 15vh;
+  left: calc((100% - 1200px) / 2);
+  max-width: 1200px;
+  padding: 0;
+}
+
+#grid-container {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#grid {
+  position: relative;
+  left: 0;
+  top: 0;
+  user-select: none;
+  cursor: -webkit-grab;
+}
+
+.grid-cell {
+  box-sizing: border-box;
+  display: inline;
+  background-color: lightgrey;
+  background-clip: content-box;
+  float: left;
+  -webkit-user-select: none;
+}
+
+.grid-supercell {
+  background-color: transparent;
+}
+
+/* Blackened Borders */
+
+.border-left {
+  border-left: 1px solid black;
+}
+
+.border-top {
+  border-top: 1px solid black;
+}
+
+.border-right {
+  border-right: 1px solid black;
+}
+
+.border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.grid-cell:not(:last-child) .border-right.grid-subcell,
+.grid-cell:not(:last-child).border-right {
+  border-right: none;
+}
+
+.grid-row:not(:last-child) .border-bottom {
+  border-bottom: none;
+}
+
+/*Zoom Sizing*/
+[data-zoom="2"] .grid-cell {
+  width: 120px;
+  height: 120px;
+}
+
+[data-zoom="2"] .grid-subcell {
+  width: 60px;
+  height: 60px;
+}
+
+[data-zoom="1"] .grid-cell {
+  width: 60px;
+  height: 60px;
+}
+
+[data-zoom="1"] .grid-subcell {
+  width: 30px;
+  height: 30px;
+}
+
+[data-zoom="0"] .grid-cell {
+  width: 30px;
+  height: 30px;
+}
+
+[data-zoom="0"] .grid-subcell {
+  width: 15px;
+  height: 15px;
+}
+
+.preview {
+  opacity: 0.8;
+}
+
+/* Parent Div must have position relative */
+[class*="pseudo-border"] {
+  position: absolute;
+  border: 0.5px solid black;
+  z-index: 1;
+}
+
+.pseudo-border-right {
+  left: 100%;
+  height: 100%;
+}
+
+/*
+.pseudo-border-left {
+  right: 100%;
+  height: 100%;
+}
+
+.pseudo-border-top {
+  bottom: 100%;
+  width: 100%;
+}
+*/
+
+.pseudo-border-bottom {
+  top: 100%;
+  width: 100%;
+}
+
+/* Poi */
+.grid-poi {
+  width: 50%;
+  height: 50%;
+  margin: 25%;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+  border-radius: 50%;
+  color: #fff;
+  background-color: grey;
+  border: none;
+}
+
+.grid-poi:focus {
+  outline: none;
+}
+
+.grid-subcell .grid-poi {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+/*Image*/
+.grid-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.border-top .grid-image {
+  top: -1px;
+}
+
+.border-left .grid-image {
+  left: -1px;
+}
+
+/*Cell Builder*/
+.cell-builder {
+  position: absolute;
+  left: calc( ( 100% - 60px ) / 2 );
+  top: calc( ( 15vh - 60px ) / 2 );
+}
+
+.cell-builder .grid-cell {
+
+}
+
+.cell-builder .grid-cell.color-erase {
+  background-image: url('../images/color_erase.svg');
+}
+
+.cell-builder .grid-cell.border-erase {
+  border-color: red;
+  border-width: 2px;
+}
+
+.cell-builder .background-erase {
+  background-color: rgba(255,0,0,0.4) !important;
+}
+
+.cell-builder .grid-cell.has-image{
+  vertical-align: middle;
+  text-align: center;
+  line-height: 70px;
+}
+
+.cell-builder .grid-cell.image-erase{
+  color: rgba(255,0,0,0.4);
+}
+
+.cell-builder .grid-subcell.border-left, .cell-builder .grid-subcell.border-top {
+  border-color: #fff;
+}
+
+/*Zoom Container*/
+.zoom-container {
+  position: absolute;
+  right: 0;
+  top: -30px;
+  height: 30px;
+}
+
+.zoom-container span {
+  margin-right: 10px;
+  font-size: 20px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.zoom-container span:hover {
+  color: #007bff;
+}

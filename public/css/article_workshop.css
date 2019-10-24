@@ -1,0 +1,175 @@
+.upload-holder {
+  flex-basis: 100%;
+}
+
+.upload-holder:not(:empty) {
+  padding: 0.75rem 1rem;
+}
+
+.workshop-editable {
+  border-width: 2px !important;
+  border-style: dashed !important;
+  border-color: lightgrey !important;
+  outline: none;
+}
+
+.card-column .card-header, .article-main .img-holder .img-text {
+  padding: 0;
+}
+
+.card-column .card-header p, .card-column .img-text p {
+  padding: .75rem 1.25rem;
+}
+.card-column .img-title, .card-column .img-text {}
+
+.workshop-editable:focus {
+  border-color: #4d90fe !important;
+}
+
+.list-data.workshop-editable, ul.list-data {
+  margin-left: 3px;
+}
+
+.card-column .img-title, .card-column .img-text {
+  margin: 0 2px 2px;
+}
+
+.related-link-box .related-link-box-head {
+  margin-right: 3px !important;
+}
+
+.related-link-box .related-link-box-head, .related-link-box .related-link-box-text, .card-column .sub-list-data {
+  margin-bottom: 3px !important;
+}
+
+.workshop-controls {
+  position: absolute;
+  top: -30px;
+  display: none;
+
+}
+
+.card-header .workshop-controls {
+  top: -35px;
+  left: 0;
+}
+
+.card-column.float-right .card-header .workshop-controls .workshop-controls-right-float {
+  display: none !important;
+}
+
+.card-column.float-left .card-header .workshop-controls .workshop-controls-left-float {
+  display: none !important;
+}
+
+.img-text .workshop-controls,
+.related-link-box-head .workshop-controls,
+.related-link-box-head + p .workshop-controls {
+  left: 0;
+}
+
+*:focus ~ .workshop-controls,
+.card-header:focus .workshop-controls,
+.img-text:focus .workshop-controls,
+.sub-list-data:focus .workshop-controls,
+.related-link-box-head:focus .workshop-controls,
+.related-link-box-head + p:focus .workshop-controls {
+  display: block;
+}
+
+.row > .workshop-controls {
+  left: 15px;
+}
+
+.workshop-controls ul, .workshop-add ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.workshop-controls ul li {
+  display: inline-block !important;
+  padding: 5px 0;
+  width: 25px;
+  height: 25px;
+  font-size: 11px !important;
+  text-align: center;
+  background-color: lightgrey;
+  margin-right: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.workshop-add ul li {
+  display: inline-block;
+  font-size: 25px;
+  padding: 10px 0;
+  text-align: center;
+  background-color: lightgrey;
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  margin-right: 4px;
+  font-weight: bold;
+  user-select: none;
+}
+
+svg, path {
+  pointer-events: none;
+}
+
+.workshop-add ul li svg {
+  vertical-align: middle;
+}
+
+.workshop-add {
+  clear: both;
+  margin-top: 10px;
+}
+
+.info-holder .info-list .workshop-add, .article-main > .workshop-add {
+  margin: 0;
+}
+
+.info-holder .info-list .workshop-add ul li {
+  display: inline-block;
+  margin-bottom: 0 !important;
+  width: 35px;
+  height: 35px;
+  font-size: 15px;
+  padding: 5px 0;
+}
+
+.info-holder .info-list li .workshop-add ul li {
+  margin-right: 0;
+  margin-top: 4px;
+  width: 25px;
+  height: 25px;
+  font-size: 11px;
+}
+
+.article-main .related-link-box .col > ul li.workshop-add li {
+  display: inline-block;
+}
+
+.workshop-node {
+  position: relative;
+}
+
+.workshop-node.card-column {
+  z-index: 2;
+}
+
+.ui-sortable-helper.float-right {
+  left: auto !important;
+  right: 0;
+  margin-right: 15px;
+}
+
+.article-main .info-holder .info-list li.ui-sortable-helper {
+  left: 1.25rem !important;
+}
+
+.article-main .info-holder .info-list li ul li.ui-sortable-helper {
+  left: 0 !important;
+}

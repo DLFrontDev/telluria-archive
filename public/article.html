@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Article</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/article.css">
+
+  <script type="text/javascript" src="./scripts/fontawesome-all.min.js"></script>
+
+  <script defer type="text/javascript" src="./scripts/jquery.min.js"></script>
+  <script defer type="text/javascript" src="./scripts/popper.min.js"></script>
+  <script defer type="text/javascript" src="./scripts/bootstrap.min.js"></script>
+
+  <script defer type="text/javascript" src="./scripts/article.js"></script>
+</head>
+<body>
+  <div class="container-fluid" id="top">
+    <div class="row">
+      <div class="col-lg-2 col-md-12">
+        <nav class="sidebar-menu">
+          <div class="container-fluid d-lg-block d-none">
+            <div class="row nav-main">
+              <div class="col">
+                <ul class="nav-list-main">
+                  <li><a href="#"><h5>Main Page</h5></a></li>
+                  <li><a href="#"><h5>World Map</h5></a></li>
+                  <li><a href="#"><h5>Gameplay</h5></a></li>
+                  <li><a href="#"><h5>Store</h5></a></li>
+                  <li><a href="#"><h5>Contact</h5></a></li>
+                  <li><a href="#"><h5>About</h5></a></li>
+                </ul>
+                <ul class="nav-list-user">
+                  <li><a href="#"><h5>Edit Article</h5></a></li>
+                  <li><a href="#"><h5>Edit Maps</h5></a></li>
+                </ul>
+                <h5>Content</h5>
+                <ul class="nav-list-article"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="d-lg-none d-flex justify-content-between">
+            <div class="btn-group" role="group">
+              <div class="btn-group">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bars"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a href="#"><h6>Main Page</h6></a>
+                  <a href="#"><h6>World Map</h6></a>
+                  <a href="#"><h6>Gameplay</h6></a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#"><h6>Store</h6></a>
+                  <a href="#"><h6>Contact</h6></a>
+                  <a href="#"><h6>About</h6></a>
+                </div>
+              </div>
+              <div class="btn-group">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a href="#"><h6>Edit Article</h6></a>
+                  <a href="#"><h6>Edit Maps</h6></a>
+                </div>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Content <i class="fa fa-caret-down"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <ul class="nav-list-article">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="col">
+        <article class="article-main">
+          <section class="row article-header">
+            <div class="col">
+              <h2 class="article-title">Article Title</h2>
+              <p class="article-intro-text">
+                Spicy jalapeno bacon ipsum dolor amet beef shankle porchetta biltong. Biltong ball tip chicken, shoulder doner ham hock bresaola swine tail frankfurter. Ball tip andouille landjaeger, tail turducken pork chop frankfurter sirloin salami. Capicola drumstick spare ribs, tri-tip frankfurter ribeye short ribs pork chop pork belly. Beef ribs prosciutto bacon, corned beef ribeye buffalo pastrami jerky sausage boudin meatloaf porchetta. Bresaola meatloaf cow ham ham hock burgdoggen tail pork belly turducken t-bone frankfurter shankle cupim pork beef. Sirloin corned beef t-bone spare ribs swine drumstick doner chicken pork belly pig.
+              </p>
+            </div>
+          </section>
+          <section class="row article-body">
+            <div class="col">
+              <h4>Article Chapter</h4>
+              <div class="card-column float-right">
+                <div class="info-holder">
+                  <div class="card">
+                    <div class="card-header info-title">
+                      <p class="">Info Title</p>
+                    </div>
+                    <img class="card-img-top" src="images/default.png" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="text-center">Small Img descript</p>
+                      <ul class="info-list">
+                        <li class="">
+                          <p class="list-header">Prop 1</p>
+                          <p class="list-data">Property Value</p>
+                        </li>
+                        <li class="">
+                          <p class="list-header">Prop 2</p>
+                          <p class="list-data">Property Value which can vary in length</p>
+                        </li>
+                        <li class="">
+                          <p class="list-header">Prop 3</p>
+                          <ul class="list-data">
+                            <li class="sub-list-data">
+                              <p>Property Value List</p>
+                            </li>
+                            <li class="sub-list-data">
+                              <p>Property Value List</p>
+                            </li>
+                            <li class="sub-list-data">
+                              <p>Property Value List</p>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>
+                Spicy jalapeno <a href="#">bacon ipsum</a> dolor amet beef shankle porchetta biltong. Biltong ball tip chicken, shoulder doner ham hock bresaola swine tail frankfurter. Ball tip andouille landjaeger, tail turducken pork chop frankfurter sirloin salami. Capicola drumstick spare ribs, tri-tip frankfurter ribeye short ribs pork chop pork belly. Beef ribs prosciutto bacon, corned beef ribeye buffalo pastrami jerky sausage boudin meatloaf porchetta. Bresaola meatloaf cow ham ham hock burgdoggen tail pork belly turducken t-bone frankfurter shankle cupim pork beef. Sirloin corned beef t-bone spare ribs swine drumstick doner chicken pork belly pig.
+              </p>
+              <p>
+                Alcatra burgdoggen salami, sirloin hamburger tri-tip picanha. Pastrami alcatra frankfurter ball tip ham hock strip steak, doner pork chop kevin landjaeger tail ham jerky flank. Short ribs pig ball tip tri-tip hamburger. Pork chop cow pig, pancetta swine drumstick bacon frankfurter bresaola ham hock jowl ground round shankle buffalo sirloin. Brisket tail prosciutto shank chuck. Fatback pancetta kevin beef ribs boudin leberkas pork chop chicken.
+              </p>
+              <p>
+                Sausage sirloin beef bacon pork belly pancetta chicken pork chop strip steak pig tongue spare ribs short ribs chuck. Pork loin pork belly beef ham sausage cow venison flank bresaola rump. Bresaola sausage tail landjaeger short loin meatball tri-tip tenderloin rump pork chop pastrami bacon jowl sirloin. Sirloin ham pork chop, andouille meatloaf tri-tip alcatra meatball. Short ribs pork chop jowl salami strip steak prosciutto kielbasa tail pork loin ball tip.
+              </p>
+              <p>
+                Alcatra burgdoggen salami, sirloin hamburger tri-tip picanha. Pastrami alcatra frankfurter ball tip ham hock strip steak, doner pork chop kevin landjaeger tail ham jerky flank. Short ribs pig ball tip tri-tip hamburger. Pork chop cow pig, pancetta swine drumstick bacon frankfurter bresaola ham hock jowl ground round shankle buffalo sirloin. Brisket tail prosciutto shank chuck. Fatback pancetta kevin beef ribs boudin leberkas pork chop chicken.
+              </p>
+              <h4>Article Chapter</h4>
+              <p>
+                Sausage sirloin beef bacon pork belly pancetta chicken pork chop strip steak pig tongue spare ribs short ribs chuck. Pork loin pork belly beef ham sausage cow venison flank bresaola rump. Bresaola sausage tail landjaeger short loin meatball tri-tip tenderloin rump pork chop pastrami bacon jowl sirloin. Sirloin ham pork chop, andouille meatloaf tri-tip alcatra meatball. Short ribs pork chop jowl salami strip steak prosciutto kielbasa tail pork loin ball tip.
+              </p>
+              <p>
+                Alcatra burgdoggen salami, sirloin hamburger tri-tip picanha. Pastrami alcatra frankfurter ball tip ham hock strip steak, doner pork chop kevin landjaeger tail ham jerky flank. Short ribs pig ball tip tri-tip hamburger. Pork chop cow pig, pancetta swine drumstick bacon frankfurter bresaola ham hock jowl ground round shankle buffalo sirloin. Brisket tail prosciutto shank chuck. Fatback pancetta kevin beef ribs boudin leberkas pork chop chicken.
+              </p>
+              <h5>Sub Article Chapter</h5>
+              <div class="card-column float-right">
+                <div class="img-holder">
+                  <div class="card">
+                    <img class="card-img-top" src="images/default.png" alt="Card image cap">
+                    <div class="card-header img-title">
+                      <p class="">Image Title</p>
+                    </div>
+                    <div class="img-text">
+                      <p class="">Image description with lots of important details about the displayed image which may or may not be ficticious and/or biased.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>
+                Spicy jalapeno <a href="#">bacon ipsum</a> dolor amet beef shankle porchetta biltong. Biltong ball tip chicken, shoulder doner ham hock bresaola swine tail frankfurter. Ball tip andouille landjaeger, tail turducken pork chop frankfurter sirloin salami. Capicola drumstick spare ribs, tri-tip frankfurter ribeye short ribs pork chop pork belly. Beef ribs prosciutto bacon, corned beef ribeye buffalo pastrami jerky sausage boudin meatloaf porchetta. Bresaola meatloaf cow ham ham hock burgdoggen tail pork belly turducken t-bone frankfurter shankle cupim pork beef. Sirloin corned beef t-bone spare ribs swine drumstick doner chicken pork belly pig.
+              </p>
+              <p>
+                Alcatra burgdoggen salami, sirloin hamburger tri-tip picanha. Pastrami alcatra frankfurter ball tip ham hock strip steak, doner pork chop kevin landjaeger tail ham jerky flank. Short ribs pig ball tip tri-tip hamburger. Pork chop cow pig, pancetta swine drumstick bacon frankfurter bresaola ham hock jowl ground round shankle buffalo sirloin. Brisket tail prosciutto shank chuck. Fatback pancetta kevin beef ribs boudin leberkas pork chop chicken.
+              </p>
+              <p>
+                Sausage sirloin beef bacon pork belly pancetta chicken pork chop strip steak pig tongue spare ribs short ribs chuck. Pork loin pork belly beef ham sausage cow venison flank bresaola rump. Bresaola sausage tail landjaeger short loin meatball tri-tip tenderloin rump pork chop pastrami bacon jowl sirloin. Sirloin ham pork chop, andouille meatloaf tri-tip alcatra meatball. Short ribs pork chop jowl salami strip steak prosciutto kielbasa tail pork loin ball tip.
+              </p>
+              <h5>Sub Article Chapter</h5>
+              <h4>Article Chapter</h4>
+              <h5>Sub Article Chapter</h5>
+              <h5>Sub Article Chapter</h5>
+            </div>
+          </section>
+
+          <section class="row related-link-box" id="related">
+            <div class="col">
+              <a href="#top" class="btn btn-primary btn-block" role="button" name="button">Back to Top</a>
+              <ul class="related-list">
+                <li class="related-link-box-title">Related Articles</li>
+                <li class="">
+                  <div class="related-link-box-head">
+                    <p class="">Related Group 1</p>
+                  </div>
+                  <div class="related-link-box-text">
+                    <p class="">
+                      <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a>
+                      <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a> <a href="#">Text Link</a><a href="#">Text Link</a> <a href="#">Text Link</a>
+                      <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a> <a href="#">Text Link</a><a href="#">Text Link</a> <a href="#">Text Link</a>
+                      <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a> <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a>
+                      <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a> <a href="#">Text Link</a><a href="#">Text Link</a><a href="#">Text Link</a>
+                    </p>
+                  </div>
+                </li>
+                <li class="">
+                  <div class="related-link-box-head">
+                    <p class="">Related Group 2</p>
+                  </div>
+                  <div class="related-link-box-text">
+                    <p class="">
+                      Test
+                    </p>
+                  </div>
+                </li>
+                <li class="">
+                  <div class="related-link-box-head">
+                    <p class="">Related Group 3</p>
+                  </div>
+                  <div class="related-link-box-text">
+                    <p class="">
+                      Test
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

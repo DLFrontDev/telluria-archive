@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid Workshop</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/grid.css">
+
+  <script type="text/javascript" src="./scripts/fontawesome-all.min.js"></script>
+  <script defer type="text/javascript" src="./scripts/jquery.min.js"></script>
+  <script defer type="text/javascript" src="./scripts/popper.min.js"></script>
+  <script defer type="text/javascript" src="./scripts/bootstrap.min.js"></script>
+
+  <script defer type="text/javascript" src="./scripts/gridDefault.js"></script>
+  <script defer type="text/javascript" src="./scripts/gridOperations.js"></script>
+</head>
+<body>
+  <div class="menu-bar">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#grid-size-modal">Grid Size</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#grid-save-modal">Save Work</button>
+  </div>
+
+  <div class="cell-builder" data-zoom="1">
+    <div class="grid-cell">
+    </div>
+  </div>
+
+  <!-- Sidebar Left -->
+  <button type="button" class="btn-toggle-left btn btn-primary sidebar-open" name="button"><i class="fa fa-angle-left"></i></button>
+  <div class="sidebar-left container-fluid sidebar-open">
+    <!-- Move -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <button class="btn btn-primary btn-block action-controls btn-selected" type="button" parent="move" data-toggle="collapse" data-target="#blankControls">
+          Move
+        </button>
+      </div>
+    </div>
+
+    <!-- Area Brush -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <button class="btn btn-primary btn-block action-controls" type="button" parent="brush" data-toggle="collapse" data-target="#brushControls">
+          Edit Cell
+        </button>
+      </div>
+    </div>
+    <!-- Area Brush options -->
+    <div id="brushControls" class="collapse">
+      <div class="row">
+        <!-- Area Size -->
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label pl-0 d-block">
+              <input class="form-check-inline action-controls" type="checkbox" parent="brush" action="areaSize" sub-action="toggle">Area Size
+            </label>
+          </div>
+          <div class="pl-3">
+            <div class="form-group">
+              <label class="d-block" for="areaBrushWidth">Width</label>
+              <input class="form-control form-control-sm action-controls" id="areaBrushWidth" type="number" parent="brush" action="areaSize" sub-action="width" value="1" min="1">
+            </div>
+            <div class="form-group">
+              <label class="d-block" for="areaBrushHeight">Height</label>
+              <input class="form-control form-control-sm action-controls" id="areaBrushHeight" type="number" parent="brush" action="areaSize" sub-action="height" value="1" min="1">
+            </div>
+          </div>
+        </div>
+        <!-- Borders Select -->
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label pl-0 d-block">
+              <input class="form-check-inline action-controls" type="checkbox" parent="brush" action="borders" sub-action="toggle">Borders
+            </label>
+          </div>
+          <div class="pl-3">
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline border-checks action-controls" type="checkbox" parent="brush" action="borders" sub-action="left">Left
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline border-checks action-controls" type="checkbox" parent="brush" action="borders" sub-action="top">Top
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline border-checks action-controls" type="checkbox" parent="brush" action="borders" sub-action="right">Right
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline border-checks action-controls" type="checkbox" parent="brush" action="borders" sub-action="bottom">Bottom
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Area Color -->
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label pl-0 d-block">
+              <input class="form-check-inline action-controls" type="checkbox" parent="brush" action="color" sub-action="toggle">Area Color
+            </label>
+          </div>
+          <div class="pl-3">
+            <div class="form-group">
+              <input class="form-control action-controls" type="color" value="#808080" parent="brush" action="color" sub-action="color">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Erase Cell -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <button class="btn btn-primary btn-block action-controls" type="button" parent="erase" data-toggle="collapse" data-target="#eraseControls">
+          Clear Cell
+        </button>
+      </div>
+    </div>
+    <!-- Erase Cell options -->
+    <div  id="eraseControls" class="collapse">
+      <div class="row">
+        <!-- Area Size -->
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label pl-0 d-block">
+              <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="areaSize" sub-action="toggle">Area Size
+            </label>
+          </div>
+          <div class="pl-3">
+            <div class="form-group">
+              <label class="d-block" for="areaEraseWidth">Width</label>
+              <input class="form-control form-control-sm action-controls" id="areaEraseWidth" type="number" parent="erase" action="areaSize" sub-action="width" value="1" min="1">
+            </div>
+            <div class="form-group">
+              <label class="d-block" for="areaEraseHeight">Height</label>
+              <input class="form-control form-control-sm action-controls" id="areaEraseHeight" type="number" parent="erase" action="areaSize" sub-action="height" value="1" min="1">
+            </div>
+          </div>
+        </div>
+        <!-- Borders Select -->
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label pl-0 d-block">
+              <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="borders" sub-action="toggle">Borders
+            </label>
+          </div>
+          <div class="pl-3">
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="borders" sub-action="left">Left
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="borders" sub-action="top">Top
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="borders" sub-action="right">Right
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="borders" sub-action="bottom">Bottom
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Area Color -->
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label pl-0 d-block">
+              <input class="form-check-inline action-controls" type="checkbox" parent="erase" action="color" sub-action="toggle">Area Color
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Grid Frame -->
+  <div class="grid-wrapper container">
+    <div class="zoom-container">
+      <span class="zoom-in"><i class="fa fa-search-plus"></i></span>
+      <span class="zoom-out"><i class="fa fa-search-minus"></i></span>
+    </div>
+    <div id="grid-container">
+      <div id="grid" data-zoom="1"></div>
+    </div>
+  </div>
+
+  <!-- Sidebar Right -->
+  <button type="button" class="btn-toggle-right btn btn-primary sidebar-open" name="button"><i class="fa fa-angle-right"></i></button>
+  <div class="sidebar-right sidebar-open">
+    <!-- Insert POI -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <button class="btn btn-primary btn-block action-controls" type="button" parent="poi" data-toggle="collapse" data-target="#poiControls">
+          Insert POI
+        </button>
+      </div>
+    </div>
+    <!-- Insert Poi -->
+    <div id="poiControls" class="collapse">
+      <div class="row">
+        <!-- Create/Delete Poi -->
+        <div class="col-12">
+          <label class="d-block">Poi Editing</label>
+          <div class="pl-3">
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="radio" name="poiOptions" parent="poi" action="options" sub-action="true" checked>Add Poi
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="radio" name="poiOptions" parent="poi" action="options" sub-action="false">Remove Poi
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Poi Color -->
+        <div class="col-12">
+          <label class="d-block" for="poiColor">POI Color</label>
+          <div class="pl-3">
+            <div class="form-group">
+              <input class="form-control action-controls" type="color" id="poiColor" value="#808080" parent="poi" action="color">
+            </div>
+          </div>
+        </div>
+        <!-- Poi Text -->
+        <div class="col-12">
+          <label class="d-block" for="poiText">POI Text</label>
+          <div class="pl-3">
+            <div class="form-group">
+              <textarea class="form-control action-controls" id="poiText" rows="6" parent="poi" action="text"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insert Image -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <button class="btn btn-primary btn-block action-controls" type="button" parent="image" data-toggle="collapse" data-target="#imageControls">
+          Insert Image
+        </button>
+      </div>
+    </div>
+    <!-- Insert Image Options -->
+    <div id="imageControls" class="collapse">
+      <div class="row">
+        <!-- Create/Delete Image -->
+        <div class="col-12">
+          <label class="d-block">Image Editing</label>
+          <div class="pl-3">
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="radio" name="imageOptions" parent="image" action="options" sub-action="true" checked>Add Image
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="radio" name="imageOptions" parent="image" action="options" sub-action="false">Remove Image
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Image Size -->
+        <div class="col-12">
+          <label class="d-block">Image Size</label>
+          <div class="pl-3">
+            <div class="form-group">
+              <label class="d-block" for="imgWidth">Width</label>
+              <input class="form-control form-control-sm action-controls" id="imgWidth" parent="image" action="areaSize" sub-action="width" type="number" value="1" min="1">
+            </div>
+            <div class="form-group">
+              <label class="d-block" for="imgHeight">Height</label>
+              <input class="form-control form-control-sm action-controls" id="imgHeight" type="number" parent="image" action="areaSize" sub-action="height" value="1" min="1">
+            </div>
+          </div>
+        </div>
+        <!-- Image Source -->
+        <div class="col-12">
+          <label class="d-block" for="imgFile">Image File</label>
+          <div class="pl-3">
+            <div class="form-group">
+              <input class="form-control-file action-controls" id="imgFile" type="file" name="" value="1" min="1" parent="image" action="file" multiple="false">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Subgrid -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <button class="btn btn-primary btn-block action-controls" type="button" parent="subgrid" data-toggle="collapse" data-target="#subgridControls">
+          Edit Subgrid
+        </button>
+      </div>
+    </div>
+    <!-- Edit Subgrid -->
+    <div id="subgridControls" class="collapse">
+      <div class="row">
+        <!-- Create/Delete Subgrid -->
+        <div class="col-12">
+          <label class="d-block">Subgrid Editing</label>
+          <div class="pl-3">
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="radio" name="subgridOptions" parent="subgrid" action="options" sub-action="true" checked>Add Subgrid
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="radio" name="subgridOptions" parent="subgrid" action="options" sub-action="false">Remove Subgrid
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Subgrid Size -->
+        <div class="col-12">
+          <label class="d-block">Cell Preservation</label>
+          <div class="pl-3">
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="checkbox" parent="subgrid" action="preserve" sub-action="borders" checked>Preserve Borders
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label pl-0 d-block">
+                <input class="form-check-inline action-controls" type="checkbox" parent="subgrid" action="preserve" sub-action="color" checked>Preserve Color
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal fade" id="grid-size-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit grid size</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="settings-resizing">
+            <div class="mb-2">
+              <label for="settings-size-top">Top Size Alteration</label>
+              <input id="settings-size-top" type="number" class="form-control settings-alter" parent="resize" action="top" value="0">
+            </div>
+            <div class="mb-2">
+              <label for="settings-size-left">Left Size Alteration</label>
+              <input id="settings-size-left" type="number" class="form-control settings-alter" parent="resize" action="left" value="0">
+            </div>
+            <div class="mb-4">
+              <label for="settings-size-bottom">Bottom Size Alteration</label>
+              <input id="settings-size-bottom" type="number" class="form-control settings-alter" parent="resize" action="bottom" value="0">
+            </div>
+            <div class="mb-4">
+              <label for="settings-size-right">Right Size Alteration</label>
+              <input id="settings-size-right" type="number" class="form-control settings-alter" parent="resize" action="right" value="0">
+            </div>
+            <div class="settings-size-holder">
+              <span class="settings-size-current">
+
+              </span>
+              <i class="fa fa-arrow-right"></i>
+              <span class="settings-size-next">
+
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary btn-apply settings-alter">Apply changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="grid-save-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Save your work</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Save work modal
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="btn-save" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
